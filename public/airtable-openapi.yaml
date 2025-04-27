@@ -1,0 +1,53 @@
+openapi: 3.1.0
+info:
+  title: Social Media Post API
+  version: 1.0.0
+paths:
+  /v0/{baseId}/{tableName}:
+    post:
+      summary: "Create Social Media Post"
+      operationId: "createPost"
+      parameters:
+        - in: path
+          name: baseId
+          required: true
+          schema:
+            type: string
+          description: Die ID der Airtable Base.
+        - in: path
+          name: tableName
+          required: true
+          schema:
+            type: string
+          description: Der Name der Tabelle.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fields:
+                  type: object
+                  properties:
+                    Platform:
+                      type: string
+                      description: Die Plattform, z.B. LinkedIn, Instagram.
+                    PostContent:
+                      type: string
+                      description: Der Inhalt des Social Media Posts.
+                  required:
+                    - Platform
+                    - PostContent
+      responses:
+        '200':
+          description: Erfolgreich erstellt
+servers:
+  - url: https://api.airtable.com
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []

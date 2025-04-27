@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "create_social_media_post",
+  "name_for_human": "Social Media Post Creator",
+  "description_for_model": "Erstellt einen neuen Social Media Post in Airtable.",
+  "description_for_human": "Erstellt neue Einträge in der 'Posts'-Tabelle der Airtable-Base 'Social Media Planner'.",
+  "api": {
+    "type": "openapi",
+    "url": "https://airtable-api-ruby.vercel.app/airtable-openapi.yaml",
+    "is_user_authenticated": true
+  }
+}
